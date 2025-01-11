@@ -54,6 +54,12 @@ Build and run a curler image
 Using devopsdockeruh/simple-web-service:alpine as a base image for an image
 
 The following screenshot shows the image built on from the `devopsdockeruh/simple-web-service:alpine`
-running a web service without any arguments being passed
+running a web service without any arguments being passed. The ![dockerfile](../0x01_building-containers/Dockerfile-web-server) for this image is relative short as it only has two lines
+
+
+```dockerfile
+FROM devopsdockeruh/simple-web-service:alpine 
+CMD  server
+```
 
 ![Container running web service](../assets/web-server.png)
