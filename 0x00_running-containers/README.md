@@ -44,8 +44,16 @@ The secret message is
 The password is _basics_
 
 ## Exercise 1.7: Image for script
+
 Build and run a curler image
 
 ![Screenshot showing the curler image runnining](../assets/curler.png)
 
+## Exercise 1.8: Two line Dockerfile
 
+Using devopsdockeruh/simple-web-service:alpine as a base image for an image
+
+The following screenshot shows the image built on from the `devopsdockeruh/simple-web-service:alpine`
+running a web service without any arguments being passed
+
+![Container running web service](../assets/web-server.png)

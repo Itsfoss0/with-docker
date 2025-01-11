@@ -1,0 +1,4 @@
+# run a simple web server
+
+FROM devopsdockeruh/simple-web-service:alpine 
+CMD  server
