@@ -63,3 +63,27 @@ CMD  server
 ```
 
 ![Container running web service](../assets/web-server.png)
+
+
+## Exercise 1.9: Volumes
+The following screenshot shows the container running with the volume bound to it. 
+
+![Screenshot of container running with volume bound](../assets/volumes.png)
+
+The command used 
+
+```
+docker run -v /home/itsfoss/volumes/text.log:/usr/src/app/text.log devopsdockeruh/simple-web-service
+```
+
+
+## Exercise 1.10: Ports open
+This exercises involves exposing a simple web server to be able to access it via a browser. Browsers typically use port 80 for http and 443 for http by default. Both of these ports and considered [priviledged](https://serverfault.com/a/112798/1067316), which generally require additional privileges to be able to listen on them. As seen from the screenshots, we ran docker without a sudo prefix because we added our user to the docker group. 
+
+
+![Screenshot showing the command to publish port 8080 of the container](../assets/expose.png)
+
+
+We can then access the service in the browser by typing `localhost` in  the URL bar. 
+
+![Accessing the mapped port via the browser](../assets/path.png)
