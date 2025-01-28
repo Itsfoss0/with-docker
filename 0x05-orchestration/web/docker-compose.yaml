@@ -1,0 +1,21 @@
+version: '3.8'
+
+
+services:
+  backend:
+    image: backend:v2.0.1
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - REQUEST_ORIGIN=*
+      - REDIS_HOST=redis
+    container_name: backend
+
+  frontend:
+    image: frontend:v2.0.1
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080
+    container_name: frontend
