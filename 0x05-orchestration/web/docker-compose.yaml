@@ -1,5 +1,4 @@
-version: '3.8'
-
+version: "3.8"
 
 services:
   backend:
@@ -10,6 +9,10 @@ services:
       - PORT=8080
       - REQUEST_ORIGIN=*
       - REDIS_HOST=redis
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE}
     container_name: backend
 
   frontend:
@@ -27,6 +30,13 @@ services:
     volumes:
       - store:/data
 
+  postgres:
+    image: postgres:13.2-alpine
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
 volumes:
   store:
     driver: local
@@ -34,4 +44,3 @@ volumes:
       o: bind
       type: none
       device: .
-
