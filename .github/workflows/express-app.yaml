@@ -1,0 +1,32 @@
+name: Release Express app
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "0x06-production/express-app/*"
+      - ".github/workflows/express-app.yaml"
+
+jobs:
+  release:
+    name: Publish Image to docker hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Change directory to target
+        run: cd '0x06-production/express-app'
+
+      - name: Login to dockerhub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: build and push
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tag: ${{ secrets.DOCKERHUB_USERNAME }}/express-app:latest
