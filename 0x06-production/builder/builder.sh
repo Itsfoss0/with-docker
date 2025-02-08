@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 # Deployment script to  build and publish
 # a docker image for a git repo to dockerhub
 
